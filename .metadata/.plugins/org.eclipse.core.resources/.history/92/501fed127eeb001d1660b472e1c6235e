@@ -1,0 +1,21 @@
+package com.zorba.cloud.gateway;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class FallBackMethodController {
+	
+	@GetMapping("/examServiceFallBackMethod")
+	public String examServiceFallBackMethod() {
+		return "Exam Service is taking longer than Exected."+
+	"Please try again later";
+	}
+	
+	@GetMapping("/studentServiceFallBackMethod")
+	public String studentServiceFallBackMethod() {
+		return "Exam Service is taking longer than Exected."+
+	"Please try again later";
+	}
+
+}

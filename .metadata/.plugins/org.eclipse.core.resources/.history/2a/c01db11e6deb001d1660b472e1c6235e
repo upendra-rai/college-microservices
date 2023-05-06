@@ -1,0 +1,40 @@
+package com.zorba.student.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.zorba.exam.entities.Department;
+import com.zorba.exam.services.DepartmentService;
+import com.zorba.student.services.EmployeeService;
+
+public class EmployeeController {
+	
+	@Autowired
+	private EmployeeService employeeService;
+	
+	@GetMapping
+	public ResponseEntity<List<Employee>> getDepartments(){
+		log.info("Get All Department List of DepartmentController ");
+		return ResponseEntity.ok(employeeService.getDepartments());
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Employee>getDepartmentById(@PathVariable Long id){
+		log.info("Get Department Details By Id of DepartmentController ");
+		return ResponseEntity.ok(employeeService.getDepartmentById(id));
+	}
+	
+	@PostMapping
+	public ResponseEntity<Employee>saveDepartment(@RequestBody Department department){
+		log.info("Save Department Details of DepartmentController ");
+		return ResponseEntity.ok(employeeService.saveDepartment(department));
+	}
+
+
+}

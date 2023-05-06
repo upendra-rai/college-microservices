@@ -1,0 +1,37 @@
+server:
+  port: 9090
+  
+spring:   
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: STUDENT-DATA-SERVICE
+          uri: lb://STUDENT-DATA-SERVICE
+          predicates:
+            - Path=/employees/**
+          filters:
+            - name: CircuiteBreaker  
+              args:
+                name: STUDENT-DATA-SERVICE
+                fallbackuri: forward:/examServiceFallBack
+                
+        - id: EXAM-DATA-SERVICE
+          uri: lb://EXAM-DATA-SERVICE
+          predicates:
+            - Path=/departments/**   
+          filters:
+            - name: CircuiteBreaker  
+              args:
+                name: EXAM-DATA-SERVICE
+                fallbackuri: forward:/studentServiceFallBack
+    
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url: 
+      defaultZone: http://localhost:8761/eureka/
+  instance:   
+    hostname: localhost     

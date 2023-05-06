@@ -1,0 +1,12 @@
+package com.demo.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "user_table_demo")
+public class User {
+	
+	private 
+
+}

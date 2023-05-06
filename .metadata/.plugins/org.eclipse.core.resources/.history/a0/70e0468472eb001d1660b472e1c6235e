@@ -1,0 +1,13 @@
+package com.zorba.service.registry;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CollegeServiceRegistryApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CollegeServiceRegistryApplication.class, args);
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.zorba.student.repositories;
+
+public class EmployeeRepository {
+
+}

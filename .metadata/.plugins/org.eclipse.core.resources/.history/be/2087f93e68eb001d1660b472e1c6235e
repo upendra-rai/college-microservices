@@ -1,0 +1,21 @@
+package com.zorba.exam.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zorba.exam.entities.Department;
+import com.zorba.exam.repositories.DepartmentRepository;
+
+@Service
+public class DepartmentServiceImpl implements DepartmentService{
+
+	@Autowired
+	private DepartmentRepository departmentRepository;
+
+	@Override
+	public List<Department> getDepartments() {
+		return departmentRepository.findAll();
+	}
+}

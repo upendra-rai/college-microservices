@@ -1,0 +1,5 @@
+package com.zorba.student.dtos;
+
+public class EmployeeDepartment {
+
+}
